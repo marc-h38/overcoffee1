@@ -119,7 +119,8 @@ public class Auto_Score_Specimen_Middle extends LinearOpMode {
         telemetry.addData("Wheel Speeds L : R", "%5.2f : %5.2f : %5.2f : %5.2f", frontLeftSpeed, frontRightSpeed, backLeftSpeed, backRightSpeed);
         telemetry.update();
     }
-    
+
+    // Best function ever
     public void turnToHeading(double maxTurnSpeed, double heading) {
         
         
