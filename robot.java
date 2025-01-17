@@ -53,7 +53,9 @@ public class Auto_Score_Specimen_Middle extends LinearOpMode {
     static final double TURN_SPEED = 0.2;/////////
     static final double STRAFE_SPEED = 0.2;/////////
     static final double HEADING_THRESHOLD = 1.0;//
-    
+
+
+    // this is the best code
     private static final double TICKS_PER_REV = 28 * (((1+(46.0/17)))*(1+(46.0/11))); // NEED TO CHANGE
     private static final double WHEEL_DIAMETER_MILLIMETER = 104; // Diameter of the wheel in millimeter
     private static final double CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER_MILLIMETER; // Circumference
@@ -200,7 +202,8 @@ public class Auto_Score_Specimen_Middle extends LinearOpMode {
         backLeftDrive.setPower(backLeftSpeed);
         backRightDrive.setPower(backRightSpeed);
     }
-    
+
+    // moverobotstrage
     public void moveRobotStrafe(double strafe, double turn) {
 
         frontLeftSpeed  =  strafe + turn;
