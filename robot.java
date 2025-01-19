@@ -516,7 +516,7 @@ public class Auto_Score_Specimen_Middle extends LinearOpMode {
         slides.setTargetPosition((int) (0));
         slides.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         slides.setPower(2100);
-        driveStrafe(1, 1000, 0, -1);
+        driveStrafe(1, 1000, 0, -0.5);
         
         
         
