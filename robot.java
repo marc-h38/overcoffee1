@@ -16,7 +16,6 @@ import com.qualcomm.robotcore.hardware.IMU;
 import com.qualcomm.robotcore.util.Range;
 
 
-
 @Autonomous(name="AutoMode (Score Specimen)", group="Linear OpMode")
 public class Auto_Score_Specimen_Middle extends LinearOpMode {
     private DcMotor frontLeftDrive = null;
@@ -514,7 +513,7 @@ public class Auto_Score_Specimen_Middle extends LinearOpMode {
         
         
     
-        sleep(10000);
+        sleep(1000000000);
     }
 }
 
