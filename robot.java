@@ -50,8 +50,8 @@ public class Auto_Score_Specimen_Middle extends LinearOpMode {
     private int backRightTarget = 0;/////
     
     static final double DRIVE_SPEED = 0.4;////////
-    static final double TURN_SPEED = 0.2;/////////
-    static final double STRAFE_SPEED = 0.2;/////////
+    static final double TURN_SPEED = 0.4;/////////
+    static final double STRAFE_SPEED = 0.4;/////////
     static final double HEADING_THRESHOLD = 1.0;//
 
 
@@ -176,15 +176,15 @@ public class Auto_Score_Specimen_Middle extends LinearOpMode {
         return Range.clip(headingError * proportionalGain, -1, 1);
     }
 
-    public void moveRobot(double forward, double turn) {
+    public void moveRobot(double forward, double turn, double strafe) {
         
         driveSpeed = forward;     // save this value as a class member so it can be used by telemetry.
         turnSpeed  = turn;
 
-        frontLeftSpeed  = forward - turn;
-        frontRightSpeed = forward + turn;
-        backLeftSpeed  = forward - turn;
-        backRightSpeed = forward + turn;
+        frontLeftSpeed  = forward - turn + stafe;
+        frontRightSpeed = forward + turn - strafe;
+        backLeftSpeed  = forward - turn - strafe;
+        backRightSpeed = forward + turn + strafe;
         
         double max1 = Math.max(Math.abs(backLeftSpeed), Math.abs(backRightSpeed));
         double max2 = Math.max(max1, Math.abs(frontLeftSpeed));
@@ -206,30 +206,7 @@ public class Auto_Score_Specimen_Middle extends LinearOpMode {
     }
 
     // moverobotstrage
-    public void moveRobotStrafe(double strafe, double turn) {
-
-        frontLeftSpeed  =  strafe + turn;
-        frontRightSpeed =  - strafe - turn;
-        backLeftSpeed  =  - strafe + turn;
-        backRightSpeed =  strafe - turn;
-        
-        double max1 = Math.max(Math.abs(backLeftSpeed), Math.abs(backRightSpeed));
-        double max2 = Math.max(max1, Math.abs(frontLeftSpeed));
-        double max = Math.max(max2, Math.abs(frontRightSpeed));
-        
-        if (max > 1.0){
-            frontLeftSpeed /= max;
-            frontRightSpeed /= max;
-            backLeftSpeed /= max;
-            backRightSpeed /= max;
-        }
-        frontLeftDrive.setPower(frontLeftSpeed);
-        frontRightDrive.setPower(frontRightSpeed);
-        backLeftDrive.setPower(backLeftSpeed);
-        backRightDrive.setPower(backRightSpeed);
-        telemetry.addData("Move Robot Wheel Speeds L : R", "%5.2f : %5.2f : %5.2f : %5.2f", frontLeftSpeed, frontRightSpeed, backLeftSpeed, backRightSpeed);
-        telemetry.update();
-    }
+    
     
     public void slidePosition(double s){
         if(s == 1){
@@ -271,9 +248,9 @@ public class Auto_Score_Specimen_Middle extends LinearOpMode {
             
             maxDriveSpeed = Math.abs(maxDriveSpeed);
             if(direction == 1){
-                moveRobotStrafe(maxDriveSpeed, 0);
+                moveRobot(0, 0, maxDriveSpeed);
             } else {
-                moveRobotStrafe(-maxDriveSpeed, 0);
+                moveRobot(0, 0, -maxDriveSpeed);
             }
             
             while (opModeIsActive() && (backLeftDrive.isBusy() && backRightDrive.isBusy() && frontLeftDrive.isBusy() && frontRightDrive.isBusy())){
@@ -287,9 +264,9 @@ public class Auto_Score_Specimen_Middle extends LinearOpMode {
                 }
                 // Apply the turning correction to the current driving speed.
                 if(direction == 1){
-                    moveRobotStrafe(maxDriveSpeed, 0);
+                    moveRobot(0, turnSpeed, maxDriveSpeed);
                 } else {
-                    moveRobotStrafe(-maxDriveSpeed, 0);
+                    moveRobot(0, turnSpeed-maxDriveSpeed);
                 }
         
             }
