@@ -510,7 +510,7 @@ public class Auto_Score_Specimen_Middle extends LinearOpMode {
         slidePosition(1);
         wrist(2);
         armPosition(ARM_CLEAR_BARRIER+(0*ARM_TICKS_PER_DEGREE), 0, 1500);
-        intake(0);
+        intake(1);
         
         // retract the slide fully and wait to retract
         slides.setTargetPosition((int) (0));
