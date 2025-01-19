@@ -50,8 +50,8 @@ public class Auto_Score_Specimen_Middle extends LinearOpMode {
     private int backRightTarget = 0;/////
     
     static final double DRIVE_SPEED = 0.4;////////
-    static final double TURN_SPEED = 0.2;/////////
-    static final double STRAFE_SPEED = 0.2;/////////
+    static final double TURN_SPEED = 0.4;/////////
+    static final double STRAFE_SPEED = 0.4;/////////
     static final double HEADING_THRESHOLD = 1.0;//
 
 
