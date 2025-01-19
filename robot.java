@@ -536,7 +536,7 @@ public class Auto_Score_Specimen_Middle extends LinearOpMode {
         
         
     
-        sleep(10000);
+        sleep(1000000000);
     }
 }
 
