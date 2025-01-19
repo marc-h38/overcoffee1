@@ -56,6 +56,7 @@ public class Auto_Score_Specimen_Middle extends LinearOpMode {
 
 
     // this is ALMOST the best code
+    // But Not
     private static final double TICKS_PER_REV = 28 * (((1+(46.0/17)))*(1+(46.0/11))); // NEED TO CHANGE
     private static final double WHEEL_DIAMETER_MILLIMETER = 104; // Diameter of the wheel in millimeter
     private static final double CIRCUMFERENCE = Math.PI * WHEEL_DIAMETER_MILLIMETER; // Circumference
